@@ -39,3 +39,19 @@ config
     interface loopback-0
 
 ```
+
+
+Comandos para analise de problemas
+```
+show ip ospf
+show ip ospf neighbor
+show ip ospf database
+show ip ospf interface
+show ip ospf detail
+show ip ospf extensive
+show ip ospf brief
+show ip ospf database external
+show ip route ospf
+show ip rib ospf
+
+```
