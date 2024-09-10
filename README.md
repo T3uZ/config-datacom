@@ -18,3 +18,10 @@ interface l3 VLAN_OSPF
     lower-layer-if vlan VLAN_OSPF
 
 ```
+
+Configurar IP no loopback 
+```
+interface loopback 0
+  ipv4 address X.X.X.X/XX
+
+```
