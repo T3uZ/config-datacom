@@ -81,10 +81,41 @@ Habilitar o RSVP nas interfaces L3:
 mpls rsvp interface l3-<INTERFACE-NAME>
 ```
 
+
+Obs.: Dentro do Túnel pode ter varios path-option.
+      Primeiro cria os caminhos possiveis, sempre strict! Depois cria as opções do Túnel.
+      
 Configuração dos caminhos:
 
 ```
 mpls traffic-eng explicit-path <NAME> //Exemplo: UAE-P71-MNI-JTI
-hop <1-65535> ipv4 next-address <IP ADDRESS> <LOOSE | STRICT>
+hop <1-65535> ipv4 next-address <IP ADDRESS> <LOOSE | STRICT> //Strict usa o IP /30 do OSPF o Loose usa o de loopback
+Ex:
+hop 10 ipv4 next-address 172.25.10.2 STRICT
+hop 20 ipv4 next-address 172.25.10.6 STRICT
 ```
+
+
+Configurando o Túnel
+```
+interface tunnel-te <1-65535>
+name A-B-C-D
+destination <IP ADDRESS DA PONTA FINAL>
+path-option 10 explicit name <PATH NAME>
+```
+
+Configurando o Túnel com mais de um caminho
+```
+interface tunnel-te <1-65535>
+name A-B-C-D
+destination <IP ADDRESS DA PONTA FINAL> //IP de qual SW quer chegar
+path-option 10 explicit name <PATH NAME>
+path-option 20 explicit name <PATH NAME>
+path-option 30 explicit name <PATH NAME>
+```
+
+Um Exemplo de STRICT
+
+![image](https://github.com/user-attachments/assets/7ea5944c-cbc1-4996-95cf-217ba4da5553)
+
 
