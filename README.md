@@ -31,7 +31,7 @@ Configurando OSPF
 ```
 config
   router ospf 1
-  router-id X.X.X.X/XX //Mesmo IP que foi colocado no loopback
+  router-id X.X.X.X //Mesmo IP que foi colocado no loopback
   area 0
     interace l3-VLAN_OSPF //VLAN que estamos fechando para OSPF
       network-type point-to-point
@@ -53,5 +53,17 @@ show ip ospf brief
 show ip ospf database external
 show ip route ospf
 show ip rib ospf
+
+```
+
+MPLS LDP
+```
+configure
+!
+mpls ldp
+    lsr-id loopback-0
+    interface 13-VAN_OSPF
+!
+    neighbor targeted X.X.X.X //IP dos outros roteadores (IP do MPLS)
 
 ```
