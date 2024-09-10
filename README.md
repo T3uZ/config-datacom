@@ -21,7 +21,21 @@ interface l3 VLAN_OSPF
 
 Configurar IP no loopback 
 ```
+config
 interface loopback 0
   ipv4 address X.X.X.X/XX
+
+```
+
+Configurando OSPF
+```
+config
+  router ospf 1
+  router-id X.X.X.X/XX //Mesmo IP que foi colocado no loopback
+  area 0
+    interace l3-VLAN_OSPF //VLAN que estamos fechando para OSPF
+      network-type point-to-point
+
+    interface loopback-0
 
 ```
