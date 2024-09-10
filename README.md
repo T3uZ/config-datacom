@@ -67,3 +67,24 @@ mpls ldp
     neighbor targeted X.X.X.X //IP dos outros roteadores (IP do MPLS)
 
 ```
+
+Habilitar no OSPF o envio da LSA type 10 opaque:
+
+```
+router ospf 1 vrf global
+mpls-te router-id loopback-0
+```
+
+Habilitar o RSVP nas interfaces L3:
+
+```
+mpls rsvp interface l3-<INTERFACE-NAME>
+```
+
+Configuração dos caminhos:
+
+```
+mpls traffic-eng explicit-path <NAME> //Exemplo: UAE-P71-MNI-JTI
+hop <1-65535> ipv4 next-address <IP ADDRESS> <LOOSE | STRICT>
+```
+
