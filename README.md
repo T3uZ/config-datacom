@@ -39,7 +39,23 @@ config
     interface loopback-0
 
 ```
+Transportar vlan no MPLS (Igual VLANIF do Huawei)
 
+```
+mpls l2vpn
+ vpws-group CLI
+  vpn VLAN
+   neighbor X.X.X.X (IP destino SW)
+    pw-type vlan VLAN
+    pw-id VLAN
+    pw-mtu 1500
+   !
+   access-interface gigabit-ethernet-1/1/2
+   !
+  !
+ !
+
+```
 
 Comandos para analise de problemas
 ```
