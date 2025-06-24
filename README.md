@@ -83,8 +83,12 @@ mpls ldp
     neighbor targeted X.X.X.X //IP dos outros roteadores (IP do MPLS)
 
 ```
-
+Troubleshootingshow mpls ldp database
+```
+show mpls ldp neighbor
+show mpls ldp parameters
 Habilitar no OSPF o envio da LSA type 10 opaque:
+```
 
 ```
 router ospf 1 vrf global
